@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pure One-Way ANOVA Analysis Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafbfd;--bg2:#fff;--bg3:#f4f6fa;--border:#333;--txt:#1a1d26;--txt2:#4a5068;--blue:#2563eb;--green:#16a34a;--font-serif:'Merriweather',Georgia,serif;--font-sans:'Source Sans 3',system-ui,sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--txt);line-height:1.8;font-size:15px; padding:40px;}
+.container{max-width:900px;margin:0 auto;background:#fff;padding:50px;box-shadow:0 4px 15px rgba(0,0,0,0.05);border-radius:8px;}
+h1{font-family:var(--font-serif);font-size:1.8rem;text-align:center;margin-bottom:10px;}
+.subtitle{text-align:center;color:var(--txt2);font-size:1rem;margin-bottom:40px;}
+h2{font-family:var(--font-serif);font-size:1.3rem;margin:40px 0 15px;padding-bottom:10px;border-bottom:2px solid var(--blue);}
+h3{font-size:1.1rem;margin:25px 0 10px;}
+.desc{background:var(--bg3);border-left:4px solid var(--blue);padding:15px 20px;margin-bottom:25px;font-size:0.95rem;color:var(--txt2);}
+.desc strong{color:var(--txt);}
+/* Academic Paper Table Style (APA-like) */
+table{width:100%;border-collapse:collapse;margin:20px 0 30px;font-size:0.9rem;}
+caption{font-weight:700;text-align:left;padding-bottom:10px;font-size:1rem;color:var(--txt);}
+thead th{border-top:2px solid var(--border);border-bottom:1px solid var(--border);padding:10px;text-align:center;}
+thead th:first-child{text-align:left;}
+tbody td{padding:10px;text-align:center;border-bottom:none;}
+tbody tr:last-child td{border-bottom:2px solid var(--border);}
+tbody td:first-child{text-align:left;}
+.indent{padding-left:25px !important;}
+.sig{color:var(--green);font-weight:700;}
+.interp{margin-top:-10px;margin-bottom:30px;font-size:0.95rem;color:var(--txt2);line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+<script>
+const D = {"N": 52, "demo_tables": [{"label": "Age Group", "rows": [{"category": "20-40", "frequency": 23, "percentage": 44.2}, {"category": "40-65", "frequency": 27, "percentage": 51.9}, {"category": "65 and Over", "frequency": 2, "percentage": 3.8}], "total": 52}, {"label": "Gender", "rows": [{"category": "Male", "frequency": 21, "percentage": 40.4}, {"category": "Female", "frequency": 31, "percentage": 59.6}], "total": 52}, {"label": "Professional Role", "rows": [{"category": "BVAWD Officer", "frequency": 14, "percentage": 26.9}, {"category": "Social Worker", "frequency": 23, "percentage": 44.2}, {"category": "Police Officer", "frequency": 15, "percentage": 28.8}], "total": 52}], "proqol_desc": [{"name": "Compassion Satisfaction (CS)", "mean": 39.42, "sd": 3.99, "median": 40.0, "min": 30, "max": 46, "interpretation": "Moderate", "levels": [{"level": "Low", "freq": 0, "pct": 0.0}, {"level": "Moderate", "freq": 33, "pct": 63.5}, {"level": "High", "freq": 19, "pct": 36.5}]}, {"name": "Burnout (BO)", "mean": 24.63, "sd": 3.62, "median": 24.0, "min": 17, "max": 34, "interpretation": "Moderate", "levels": [{"level": "Low", "freq": 11, "pct": 21.2}, {"level": "Moderate", "freq": 41, "pct": 78.8}, {"level": "High", "freq": 0, "pct": 0.0}]}, {"name": "Secondary Traumatic Stress (STS)", "mean": 26.0, "sd": 6.22, "median": 27.0, "min": 14, "max": 38, "interpretation": "Moderate", "levels": [{"level": "Low", "freq": 10, "pct": 19.2}, {"level": "Moderate", "freq": 42, "pct": 80.8}, {"level": "High", "freq": 0, "pct": 0.0}]}], "anova_results": [{"demo": "Age Group", "subscale": "Compassion Satisfaction (CS)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "20-40", "n": 23, "mean": 39.48, "sd": 3.86}, {"name": "40-65", "n": 27, "mean": 39.07, "sd": 4.08}, {"name": "65 and Over", "n": 2, "mean": 43.5, "sd": 3.54}], "k": 3, "n_total": 52, "ss_between": 36.6013, "ss_within": 774.091, "ss_total": 810.6923, "df_between": 2, "df_within": 49, "df_total": 51, "ms_between": 18.3007, "ms_within": 15.7978, "F": 1.1584, "p": 0.3224, "p_raw": 0.3224266433450451, "eta_sq": 0.0451, "cohens_d": null, "significant": false, "levene_F": 0.0504, "levene_p": 0.9509, "levene_ok": "True", "shapiro": [{"group": "20-40", "n": 23, "W": 0.9563, "p": 0.3927, "normal": "True"}, {"group": "40-65", "n": 27, "W": 0.9128, "p": 0.0266, "normal": "False"}], "posthoc": []}, {"demo": "Age Group", "subscale": "Burnout (BO)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "20-40", "n": 23, "mean": 24.3, "sd": 3.55}, {"name": "40-65", "n": 27, "mean": 24.93, "sd": 3.84}, {"name": "65 and Over", "n": 2, "mean": 24.5, "sd": 2.12}], "k": 3, "n_total": 52, "ss_between": 4.8363, "ss_within": 665.2214, "ss_total": 670.0577, "df_between": 2, "df_within": 49, "df_total": 51, "ms_between": 2.4181, "ms_within": 13.5759, "F": 0.1781, "p": 0.8374, "p_raw": 0.8373820195357868, "eta_sq": 0.0072, "cohens_d": null, "significant": false, "levene_F": 0.3644, "levene_p": 0.6965, "levene_ok": "True", "shapiro": [{"group": "20-40", "n": 23, "W": 0.9286, "p": 0.1021, "normal": "True"}, {"group": "40-65", "n": 27, "W": 0.9689, "p": 0.5742, "normal": "True"}], "posthoc": []}, {"demo": "Age Group", "subscale": "Secondary Traumatic Stress (STS)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "20-40", "n": 23, "mean": 24.65, "sd": 6.69}, {"name": "40-65", "n": 27, "mean": 27.11, "sd": 5.83}, {"name": "65 and Over", "n": 2, "mean": 26.5, "sd": 4.95}], "k": 3, "n_total": 52, "ss_between": 75.6159, "ss_within": 1894.3841, "ss_total": 1970.0, "df_between": 2, "df_within": 49, "df_total": 51, "ms_between": 37.808, "ms_within": 38.6609, "F": 0.9779, "p": 0.3833, "p_raw": 0.38330474997717656, "eta_sq": 0.0384, "cohens_d": null, "significant": false, "levene_F": 0.3784, "levene_p": 0.6869, "levene_ok": "True", "shapiro": [{"group": "20-40", "n": 23, "W": 0.9276, "p": 0.0973, "normal": "True"}, {"group": "40-65", "n": 27, "W": 0.9682, "p": 0.556, "normal": "True"}], "posthoc": []}, {"demo": "Gender", "subscale": "Compassion Satisfaction (CS)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "Male", "n": 21, "mean": 40.14, "sd": 3.64}, {"name": "Female", "n": 31, "mean": 38.94, "sd": 4.19}], "k": 2, "n_total": 52, "ss_between": 18.2499, "ss_within": 792.4424, "ss_total": 810.6923, "df_between": 1, "df_within": 50, "df_total": 51, "ms_between": 18.2499, "ms_within": 15.8488, "F": 1.1515, "p": 0.2884, "p_raw": 0.2883876987557995, "eta_sq": 0.0225, "cohens_d": 0.3033, "significant": false, "levene_F": 0.0725, "levene_p": 0.7889, "levene_ok": "True", "shapiro": [{"group": "Male", "n": 21, "W": 0.939, "p": 0.2083, "normal": "True"}, {"group": "Female", "n": 31, "W": 0.9404, "p": 0.0849, "normal": "True"}], "posthoc": []}, {"demo": "Gender", "subscale": "Burnout (BO)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "Male", "n": 21, "mean": 24.43, "sd": 3.06}, {"name": "Female", "n": 31, "mean": 24.77, "sd": 4.01}], "k": 2, "n_total": 52, "ss_between": 1.4955, "ss_within": 668.5622, "ss_total": 670.0577, "df_between": 1, "df_within": 50, "df_total": 51, "ms_between": 1.4955, "ms_within": 13.3712, "F": 0.1118, "p": 0.7395, "p_raw": 0.739454374885045, "eta_sq": 0.0022, "cohens_d": 0.0945, "significant": false, "levene_F": 0.9355, "levene_p": 0.3381, "levene_ok": "True", "shapiro": [{"group": "Male", "n": 21, "W": 0.9499, "p": 0.3399, "normal": "True"}, {"group": "Female", "n": 31, "W": 0.9654, "p": 0.4025, "normal": "True"}], "posthoc": []}, {"demo": "Gender", "subscale": "Secondary Traumatic Stress (STS)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "Male", "n": 21, "mean": 27.24, "sd": 7.3}, {"name": "Female", "n": 31, "mean": 25.16, "sd": 5.32}], "k": 2, "n_total": 52, "ss_between": 53.9969, "ss_within": 1916.0031, "ss_total": 1970.0, "df_between": 1, "df_within": 50, "df_total": 51, "ms_between": 53.9969, "ms_within": 38.3201, "F": 1.4091, "p": 0.2408, "p_raw": 0.2408145751196696, "eta_sq": 0.0274, "cohens_d": 0.3355, "significant": false, "levene_F": 3.565, "levene_p": 0.0648, "levene_ok": "True", "shapiro": [{"group": "Male", "n": 21, "W": 0.9439, "p": 0.26, "normal": "True"}, {"group": "Female", "n": 31, "W": 0.9266, "p": 0.0355, "normal": "False"}], "posthoc": []}, {"demo": "Professional Role", "subscale": "Compassion Satisfaction (CS)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "BVAWD Officer", "n": 14, "mean": 38.57, "sd": 5.79}, {"name": "Social Worker", "n": 23, "mean": 40.0, "sd": 2.89}, {"name": "Police Officer", "n": 15, "mean": 39.33, "sd": 3.52}], "k": 3, "n_total": 52, "ss_between": 17.9304, "ss_within": 792.7619, "ss_total": 810.6923, "df_between": 2, "df_within": 49, "df_total": 51, "ms_between": 8.9652, "ms_within": 16.1788, "F": 0.5541, "p": 0.5781, "p_raw": 0.5781288556544018, "eta_sq": 0.0221, "cohens_d": null, "significant": false, "levene_F": 7.8802, "levene_p": 0.0011, "levene_ok": "False", "shapiro": [{"group": "BVAWD Officer", "n": 14, "W": 0.8925, "p": 0.0879, "normal": "True"}, {"group": "Social Worker", "n": 23, "W": 0.9349, "p": 0.1392, "normal": "True"}, {"group": "Police Officer", "n": 15, "W": 0.8568, "p": 0.0217, "normal": "False"}], "posthoc": []}, {"demo": "Professional Role", "subscale": "Burnout (BO)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "BVAWD Officer", "n": 14, "mean": 26.43, "sd": 4.27}, {"name": "Social Worker", "n": 23, "mean": 24.43, "sd": 2.84}, {"name": "Police Officer", "n": 15, "mean": 23.27, "sd": 3.59}], "k": 3, "n_total": 52, "ss_between": 74.0436, "ss_within": 596.0141, "ss_total": 670.0577, "df_between": 2, "df_within": 49, "df_total": 51, "ms_between": 37.0218, "ms_within": 12.1636, "F": 3.0437, "p": 0.0568, "p_raw": 0.05675914825085742, "eta_sq": 0.1105, "cohens_d": null, "significant": false, "levene_F": 1.0233, "levene_p": 0.367, "levene_ok": "True", "shapiro": [{"group": "BVAWD Officer", "n": 14, "W": 0.972, "p": 0.9019, "normal": "True"}, {"group": "Social Worker", "n": 23, "W": 0.9443, "p": 0.222, "normal": "True"}, {"group": "Police Officer", "n": 15, "W": 0.8957, "p": 0.0819, "normal": "True"}], "posthoc": []}, {"demo": "Professional Role", "subscale": "Secondary Traumatic Stress (STS)", "test_name": "One-Way ANOVA", "group_stats": [{"name": "BVAWD Officer", "n": 14, "mean": 25.86, "sd": 6.98}, {"name": "Social Worker", "n": 23, "mean": 26.0, "sd": 5.71}, {"name": "Police Officer", "n": 15, "mean": 26.13, "sd": 6.64}], "k": 3, "n_total": 52, "ss_between": 0.5524, "ss_within": 1969.4476, "ss_total": 1970.0, "df_between": 2, "df_within": 49, "df_total": 51, "ms_between": 0.2762, "ms_within": 40.1928, "F": 0.0069, "p": 0.9932, "p_raw": 0.993152873474892, "eta_sq": 0.0003, "cohens_d": null, "significant": false, "levene_F": 0.7028, "levene_p": 0.5001, "levene_ok": "True", "shapiro": [{"group": "BVAWD Officer", "n": 14, "W": 0.9324, "p": 0.3292, "normal": "True"}, {"group": "Social Worker", "n": 23, "W": 0.9179, "p": 0.0601, "normal": "True"}, {"group": "Police Officer", "n": 15, "W": 0.9623, "p": 0.7325, "normal": "True"}], "posthoc": []}], "m_n": 21, "f_n": 31, "dom_age": "40-65", "dom_age_pct": 51.9, "prof_counts": {"SOCIAL WORKER": 23, "POLICE OFFICER": 15, "BVAWD Officer": 14}};
+const app = document.getElementById('app');
+let h = '';
+
+h+=`<h1>Pure One-Way ANOVA Parametric Analysis</h1>
+<p class="subtitle">Compassion Fatigue and Compassion Satisfaction Among DV Responders (N=${D.N})</p>`;
+
+// Statistical Test Full Description
+h+=`<div class="desc" style="background:#eef2ff; border-left-color:#4f46e5;">
+  <h3 style="margin-top:0; color:#1e3a8a;">Overview of Statistical Tests Used</h3>
+  <p style="margin-bottom:10px;">This analysis employs specific statistical tools to address each research objective comprehensively:</p>
+  <ul style="margin-left:20px; margin-bottom:10px;">
+    <li style="margin-bottom:8px;"><strong>1. Descriptive Statistics (Frequency Count and Percentage Distribution):</strong> Utilized for Objective 1 to summarize and describe the demographic profile of the participants in terms of Age, Gender, and Professional Role. This provides a clear, quantitative overview of the sample's composition.</li>
+    <li style="margin-bottom:8px;"><strong>2. Descriptive Statistics (Mean, Standard Deviation, Frequency, and Percentage):</strong> Utilized for Objective 2 to determine the central tendency and dispersion of Compassion Satisfaction, Burnout, and Secondary Traumatic Stress scores. The mean provides the average score, the standard deviation indicates the spread of scores, and frequencies/percentages are used to categorize respondents into Low, Moderate, and High levels based on standard ProQOL cut-offs.</li>
+    <li><strong>3. Inferential Statistics (Fisher's One-Way Analysis of Variance / ANOVA):</strong> Utilized for Objective 3 to analyze differences in compassion fatigue and satisfaction levels according to demographic variables. <strong>Fisher's One-Way ANOVA</strong> is the standard parametric test chosen because it efficiently and robustly compares the means of three or more independent groups. It is highly suitable for this data as it assumes equal variances and is well-established for analyzing continuous variables (like ProQOL scores) across categorical groups. For the Gender variable (which contains exactly two groups), the Fisher's ANOVA evaluates the variance equivalently to an independent samples t-test (where F = t&sup2;), ensuring a strict, pure ANOVA approach for the entire academic analysis.</li>
+  </ul>
+</div>`;
+
+// Objective 1
+h+=`<h2>Objective 1: Profile of Participants</h2>
+<div class="desc"><strong>Objective 1</strong>: Describe the profile of the participants in terms of age, gender, and professional profile.<br>
+<strong>Statistical Test Used:</strong> Descriptive Statistics (Frequency count and percentage distribution).</div>`;
+
+D.demo_tables.forEach((dt, i) => {
+  h+=`<table>
+  <caption>Table ${i+1}. Frequency and Percentage Distribution of Respondents by ${dt.label} (N=${dt.total})</caption>
+  <thead><tr><th>${dt.label}</th><th>Frequency (<em>f</em>)</th><th>Percentage (%)</th></tr></thead><tbody>`;
+  dt.rows.forEach(r => {
+    h+=`<tr><td class="indent">${r.category}</td><td>${r.frequency}</td><td>${r.percentage}%</td></tr>`;
+  });
+  h+=`<tr><td><strong>Total</strong></td><td><strong>${dt.total}</strong></td><td><strong>100.0%</strong></td></tr>
+  </tbody></table>
+  <div class="interp"><em>Description:</em> The table above presents the demographic profile for ${dt.label.toLowerCase()}. The largest group is ${dt.rows.reduce((a,b)=>a.frequency>b.frequency?a:b).category} with ${dt.rows.reduce((a,b)=>a.frequency>b.frequency?a:b).frequency} respondents (${dt.rows.reduce((a,b)=>a.frequency>b.frequency?a:b).percentage}%).</div>`;
+});
+
+// Objective 2
+h+=`<h2>Objective 2: Level of Compassion Fatigue and Satisfaction</h2>
+<div class="desc"><strong>Objective 2</strong>: Determine the level of compassion fatigue, specifically secondary traumatic stress and burnout, and compassion satisfaction among DV responders.<br>
+<strong>Statistical Test Used:</strong> Descriptive Statistics (Mean, standard deviation, frequency count, and percentage distribution).</div>`;
+
+h+=`<table>
+<caption>Table 4. Descriptive Statistics of Compassion Fatigue and Satisfaction Levels</caption>
+<thead><tr><th>Variable</th><th>Mean</th><th>SD</th><th>Level</th></tr></thead><tbody>`;
+D.proqol_desc.forEach(d => {
+  h+=`<tr><td class="indent">${d.name}</td><td>${d.mean}</td><td>${d.sd}</td><td>${d.interpretation}</td></tr>`;
+});
+h+=`</tbody></table>`;
+h+=`<div class="interp"><em>Description:</em> The respondents exhibit an overall <strong>${D.proqol_desc[0].interpretation.toLowerCase()}</strong> level of Compassion Satisfaction, <strong>${D.proqol_desc[1].interpretation.toLowerCase()}</strong> level of Burnout, and <strong>${D.proqol_desc[2].interpretation.toLowerCase()}</strong> level of Secondary Traumatic Stress.</div>`;
+
+// Objective 3
+h+=`<h2>Objective 3: Differences in Levels According to Demographics</h2>
+<div class="desc"><strong>Objective 3</strong>: Analyze differences in compassion fatigue, specifically secondary traumatic stress and burnout, and compassion satisfaction levels according to age, gender, and professional role.<br>
+<strong>Statistical Test Used:</strong> Inferential Statistics - Pure One-Way Analysis of Variance (ANOVA). A One-Way ANOVA was utilized to assess mean differences across all demographic groups, including variables with only two groups (e.g., Gender), which yields an equivalent outcome to an independent t-test (F = t²).</div>`;
+
+let tblNum = 5;
+const variables = ['Age Group', 'Gender', 'Professional Role'];
+
+variables.forEach(v => {
+  const res = D.anova_results.filter(r => r.demo === v);
+  if(res.length === 0) return;
+  
+  h+=`<h3>Differences According to ${v}</h3>`;
+  h+=`<table>
+  <caption>Table ${tblNum++}. Pure One-Way ANOVA Results by ${v}</caption>
+  <thead><tr>
+    <th style="text-align:left">Dependent Variable</th>
+    <th>Source</th>
+    <th>Sum of Squares</th>
+    <th>df</th>
+    <th>Mean Square</th>
+    <th>F</th>
+    <th>p-value</th>
+    <th>Decision</th>
+  </tr></thead><tbody>`;
+  
+  res.forEach((ar, idx) => {
+    const pStr = ar.p_raw < 0.001 ? "<.001" : parseFloat(ar.p).toFixed(3);
+    const sigCls = (ar.significant === "True" || ar.significant === true) ? "sig" : "";
+    const decStr = (ar.significant === "True" || ar.significant === true) ? "Significant" : "Not Sig.";
+    const isLast = idx === res.length - 1;
+    
+    h+=`<tr>
+      <td rowspan="3" style="text-align:left; vertical-align:top; border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}; padding-top:10px;"><strong>${ar.subscale}</strong><br><em>n=${ar.n_total}</em></td>
+      <td>Between Groups</td>
+      <td>${parseFloat(ar.ss_between).toFixed(2)}</td>
+      <td>${ar.df_between}</td>
+      <td>${parseFloat(ar.ms_between).toFixed(2)}</td>
+      <td rowspan="2" style="vertical-align:middle">${parseFloat(ar.F).toFixed(3)}</td>
+      <td rowspan="2" style="vertical-align:middle" class="${sigCls}">${pStr}</td>
+      <td rowspan="2" style="vertical-align:middle; font-weight:${(ar.significant === "True" || ar.significant === true) ? 'bold' : 'normal'}">${decStr}</td>
+    </tr>
+    <tr>
+      <td>Within Groups</td>
+      <td>${parseFloat(ar.ss_within).toFixed(2)}</td>
+      <td>${ar.df_within}</td>
+      <td>${parseFloat(ar.ms_within).toFixed(2)}</td>
+    </tr>
+    <tr>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}">Total</td>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}">${parseFloat(ar.ss_total).toFixed(2)}</td>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}">${ar.df_total}</td>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}"></td>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}"></td>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}"></td>
+      <td style="border-bottom:${isLast ? '2px solid var(--border)' : '1px solid #ccc'}"></td>
+    </tr>`;
+  });
+  h+=`</tbody></table>`;
+  
+  // Interpretation
+  const sigRes = res.filter(r => (r.significant === "True" || r.significant === true));
+  let interp = `<div class="interp"><em>Description:</em> A Fisher's One-Way ANOVA was conducted to compare scores across ${v.toLowerCase()}. `;
+  if(sigRes.length > 0) {
+    interp += `There was a statistically significant difference found in <strong>${sigRes.map(r=>r.subscale.split('(')[0].trim()).join(' and ')}</strong> across ${v.toLowerCase()} groups. `;
+  } else {
+    interp += `There were no statistically significant differences in any of the ProQOL subscales across ${v.toLowerCase()} groups (p > .05). `;
+  }
+  interp += `</div>`;
+  h+=interp;
+});
+
+// Assumption Checks
+h+=`<h2>Assumption Checks (Normality & Homogeneity of Variance)</h2>
+<div class="desc" style="background:#f0fdf4; border-left-color:#16a34a;">
+  <h3 style="margin-top:0; color:#166534;">Statistical Tests for Assumptions</h3>
+  <p style="margin-bottom:10px;">Before interpreting the Fisher's ANOVA results, two critical parametric assumptions were tested:</p>
+  <ul style="margin-left:20px; margin-bottom:10px;">
+    <li style="margin-bottom:8px;"><strong>1. Normality (Shapiro-Wilk Test):</strong> The Shapiro-Wilk test was chosen to evaluate if the data within each group follows a normal distribution. It is considered the most powerful and suitable test for small to moderate sample sizes (like this study's N=52), outperforming others like the Kolmogorov-Smirnov test in detecting non-normality.</li>
+    <li><strong>2. Homogeneity of Variances (Levene's Test):</strong> Levene's test was utilized to ensure that the variance of the dependent variables is equal across groups. This is a critical assumption for the standard Fisher's ANOVA.</li>
+  </ul>
+</div>`;
+
+h+=`<table>
+<caption>Table ${tblNum++}. Summary of Assumption Checks (Shapiro-Wilk & Levene's Test)</caption>
+<thead><tr><th>Dependent Variable</th><th style="text-align:center;">Grouping Variable</th><th style="text-align:center;">Levene's Test (Homogeneity)</th><th style="text-align:center;">Shapiro-Wilk (Normality)</th></tr></thead><tbody>`;
+
+D.anova_results.forEach(ar => {
+  const levStr = (ar.levene_ok === "True" || ar.levene_ok === true) ? "Met (Equal Variances)" : "Violated (Unequal)";
+  const levColor = (ar.levene_ok === "True" || ar.levene_ok === true) ? "var(--green)" : "var(--txt2)";
+  
+  let allNormal = true;
+  let normViolations = [];
+  ar.shapiro.forEach(sw => {
+    if(sw.normal === "False" || sw.normal === false) {
+      allNormal = false;
+      normViolations.push(sw.group);
+    }
+  });
+  
+  const normStr = allNormal ? "Met (Normally Distributed)" : `Violated in: ${normViolations.join(', ')}`;
+  const normColor = allNormal ? "var(--green)" : "var(--txt2)";
+
+  h+=`<tr>
+    <td style="text-align:left;"><strong>${ar.subscale}</strong></td>
+    <td>${ar.demo}</td>
+    <td style="color:${levColor}">${levStr} (p=${parseFloat(ar.levene_p).toFixed(3)})</td>
+    <td style="color:${normColor}">${normStr}</td>
+  </tr>`;
+});
+h+=`</tbody></table>`;
+h+=`<div class="interp"><em>Description:</em> The table above summarizes the outcomes of the Shapiro-Wilk test for normality and Levene's test for equality of variances. While some subgroups exhibited deviations from perfect normality or homogeneity, Fisher's ANOVA is generally robust to minor violations, especially with relatively balanced group sizes.</div>`;
+
+app.innerHTML = h;
+</script>
+</body>
+</html>
